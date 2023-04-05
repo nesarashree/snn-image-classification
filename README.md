@@ -37,3 +37,8 @@ python mnist.py
 ```
 python fmnist.py
 ```
+
+## train fmnist
+```
+python cifar10.py
+```
