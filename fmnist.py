@@ -2,13 +2,12 @@
 # MNIST Classification with Spiking CNN (snnTorch)
 # Author: Nesara Shree
 # Trains a Leaky Integrate-and-Fire spiking CNN on MNIST
-# using surrogate gradient learning and Backpropagation
-# Through Time (BPTT).
+# using surrogate gradient learning and BPTT.
 # ============================================================
 
-# ========================
+# ------------------------
 # IMPORTS
-# ========================
+# ------------------------
 import snntorch as snn
 from snntorch import surrogate, backprop, functional as SF, utils
 
@@ -23,9 +22,9 @@ import numpy as np
 import itertools
 
 
-# ========================
+# ------------------------
 # DATA PREPARATION
-# ========================
+# ------------------------
 # - Download and normalize MNIST (1-channel 28x28 images)
 # - Create small subsets for quick experimentation
 
@@ -56,9 +55,9 @@ train_loader = DataLoader(mnist_train_10k, batch_size=batch_size, shuffle=True, 
 test_loader = DataLoader(mnist_test_5k, batch_size=batch_size, shuffle=True, drop_last=True)
 
 
-# ========================
+# ------------------------
 # NETWORK DEFINITION
-# ========================
+# ------------------------
 # - CNN + LIF neurons with surrogate gradient (fast sigmoid)
 # - Architecture:
 #   Conv(1→12) + MaxPool + LIF →
@@ -84,9 +83,9 @@ net = nn.Sequential(
 ).to(device)
 
 
-# ========================
+# ------------------------
 # FORWARD PASS FUNCTION
-# ========================
+# ------------------------
 def forward_pass(net, num_steps, data):
     """
     Simulate the spiking CNN for num_steps time steps.
@@ -113,9 +112,9 @@ def forward_pass(net, num_steps, data):
     return torch.stack(spk_rec), torch.stack(mem_rec)
 
 
-# ========================
+# ------------------------
 # LOSS AND METRICS
-# ========================
+# ------------------------
 loss_fn = SF.ce_rate_loss()
 
 def batch_accuracy(loader, net, num_steps):
@@ -146,9 +145,9 @@ def batch_accuracy(loader, net, num_steps):
     return correct / total
 
 
-# ========================
+# ------------------------
 # INITIAL TEST BEFORE TRAINING
-# ========================
+# ------------------------
 data, targets = next(iter(train_loader))
 data, targets = data.to(device), targets.to(device)
 
@@ -164,9 +163,9 @@ test_acc = batch_accuracy(test_loader, net, num_steps)
 print(f"Initial test accuracy:        {test_acc * 100:.2f}%")
 
 
-# ========================
+# ------------------------
 # TRAINING LOOP
-# ========================
+# ------------------------
 optimizer = torch.optim.Adam(net.parameters(), lr=1e-2, betas=(0.9, 0.999))
 num_epochs = 10
 test_acc_hist = []
