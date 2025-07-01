@@ -6,9 +6,9 @@
 # gradient learning via Backpropagation Through Time (BPTT).
 # ============================================================
 
-# ========================
+# ------------------------
 # IMPORTS
-# ========================
+# ------------------------
 # - snnTorch for spiking neuron layers, loss functions, and training
 # - PyTorch for tensor ops, layers, data loading
 # - torchvision for CIFAR-10 dataset
@@ -28,9 +28,9 @@ import numpy as np
 import itertools
 
 
-# ========================
+# ------------------------
 # DATA PREPARATION
-# ========================
+# ------------------------
 # - Download and normalize CIFAR-10 (3-channel, 32x32 images, 10 classes)
 # - Create small training/testing subsets for fast experimentation
 
@@ -61,9 +61,9 @@ train_loader = DataLoader(cifar_train_10k, batch_size=batch_size, shuffle=True, 
 test_loader = DataLoader(cifar_test_5k, batch_size=batch_size, shuffle=True, drop_last=True)
 
 
-# ========================
+# ------------------------
 # NETWORK DEFINITION
-# ========================
+# ------------------------
 # - Uses LIF neurons with surrogate gradient (atan)
 # - CNN + SNN hybrid using Leaky Integrate-and-Fire (LIF) neurons.
 # - CNN backbone: Conv2D → MaxPool → LIF × 2 → FC → LIF
@@ -111,9 +111,9 @@ class LIF(nn.Module):
         return spk3, mem3
 
 
-# ========================
+# ------------------------
 # FORWARD PASS OVER TIME
-# ========================
+# ------------------------
 # - Simulates network over `num_steps`
 # - Stores spike + membrane activity at each step
 
@@ -130,9 +130,9 @@ def forward_pass(net, num_steps, data):
     return torch.stack(spk_rec), torch.stack(mem_rec)
 
 
-# ========================
+# ------------------------
 # LOSS + METRICS
-# ========================
+# ------------------------
 # - Loss: cross-entropy on average spike rate
 # - Accuracy: percent correct from spiking output
 
@@ -155,9 +155,9 @@ def batch_accuracy(loader, net, num_steps):
     return acc / total
 
 
-# ========================
+# ------------------------
 # INITIAL EVALUATION (Untrained)
-# ========================
+# ------------------------
 net = LIF(batch_size=batch_size).to(device=device)
 
 data, targets = next(iter(train_loader))
@@ -176,9 +176,9 @@ test_acc = batch_accuracy(test_loader, net, num_steps)
 print(f"Initial test accuracy:      {test_acc * 100:.2f}%")
 
 
-# ========================
+# ------------------------
 # TRAINING LOOP
-# ========================
+# ------------------------
 # - Trains using BPTT from snntorch.backprop
 # - Optimizer: Adam
 # - Logs training loss and test accuracy per epoch
