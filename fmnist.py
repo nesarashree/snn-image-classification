@@ -25,34 +25,34 @@ import itertools
 # ------------------------
 # DATA PREPARATION
 # ------------------------
-# - Download and normalize MNIST (1-channel 28x28 images)
+# - Download and normalize fmnist (1-channel 28x28 images)
 # - Create small subsets for quick experimentation
 
 batch_size = 128
-data_path = 'data/fmnist'  # You can rename this folder or just use 'data/mnist'
+data_path = 'data/ffmnist'  # You can rename this folder or just use 'data/fmnist'
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
 transform = transforms.Compose([
     transforms.ToTensor(),
-    transforms.Normalize((0,), (1,))  # MNIST mean=0, std=1 normalization
+    transforms.Normalize((0,), (1,))  # fmnist mean=0, std=1 normalization
 ])
 
-mnist_train = datasets.MNIST(data_path, train=True, download=True, transform=transform)
-mnist_test = datasets.MNIST(data_path, train=False, download=True, transform=transform)
+fmnist_train = datasets.fmnist(data_path, train=True, download=True, transform=transform)
+fmnist_test = datasets.fmnist(data_path, train=False, download=True, transform=transform)
 
 indices10k = torch.arange(1000)  # Subset first 1000 for train
 indices5k = torch.arange(500)    # Subset first 500 for test
-mnist_train_10k = Subset(mnist_train, indices10k)
-mnist_test_5k = Subset(mnist_train, indices5k)
+fmnist_train_10k = Subset(fmnist_train, indices10k)
+fmnist_test_5k = Subset(fmnist_train, indices5k)
 
-print(f"Full training set size: {len(mnist_train)}")
-print(f"Full test set size:     {len(mnist_test)}")
-print(f"Subset training size:   {len(mnist_train_10k)}")
-print(f"Subset test size:       {len(mnist_test_5k)}")
+print(f"Full training set size: {len(fmnist_train)}")
+print(f"Full test set size:     {len(fmnist_test)}")
+print(f"Subset training size:   {len(fmnist_train_10k)}")
+print(f"Subset test size:       {len(fmnist_test_5k)}")
 
-train_loader = DataLoader(mnist_train_10k, batch_size=batch_size, shuffle=True, drop_last=True)
-test_loader = DataLoader(mnist_test_5k, batch_size=batch_size, shuffle=True, drop_last=True)
+train_loader = DataLoader(fmnist_train_10k, batch_size=batch_size, shuffle=True, drop_last=True)
+test_loader = DataLoader(fmnist_test_5k, batch_size=batch_size, shuffle=True, drop_last=True)
 
 
 # ------------------------
