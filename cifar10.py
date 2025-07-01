@@ -13,6 +13,7 @@
 # - PyTorch for tensor ops, layers, data loading
 # - torchvision for CIFAR-10 dataset
 # - matplotlib for plotting (optional)
+
 import snntorch as snn
 from snntorch import surrogate, backprop, functional as SF, utils, spikeplot as splt
 
