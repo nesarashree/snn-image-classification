@@ -1,9 +1,8 @@
 # ============================================================
 # CIFAR-10 Classification with Spiking CNN (snnTorch)
 # Author: Nesara Shree
-# Trains a hybrid CNN-SNN using Leaky Integrate-and-Fire (LIF)
-# neurons on a small CIFAR-10 subset. Implements surrogate
-# gradient learning via Backpropagation Through Time (BPTT).
+# Trains a Leaky Integrate-and-Fire spiking CNN (hybrid) on 
+# CIFAR-10 using surrogate gradient learning and BPTT.
 # ============================================================
 
 # ------------------------
