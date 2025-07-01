@@ -29,7 +29,7 @@ import itertools
 # - Create small subsets for quick experimentation
 
 batch_size = 128
-data_path = 'data/ffmnist'  # You can rename this folder or just use 'data/fmnist'
+data_path = 'data/fmnist'  # You can rename this folder or just use 'data/fmnist'
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
