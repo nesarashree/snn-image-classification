@@ -64,6 +64,7 @@ test_loader = DataLoader(cifar_test_5k, batch_size=batch_size, shuffle=True, dro
 # NETWORK DEFINITION
 # ========================
 # - Uses LIF neurons with surrogate gradient (atan)
+# - CNN + SNN hybrid using Leaky Integrate-and-Fire (LIF) neurons.
 # - CNN backbone: Conv2D → MaxPool → LIF × 2 → FC → LIF
 
 spike_grad = surrogate.fast_sigmoid(slope=25)
@@ -72,7 +73,6 @@ num_steps = 50      # simulation time steps
 
 class LIF(nn.Module):
     """
-    CNN + SNN hybrid using Leaky Integrate-and-Fire (LIF) neurons.
     Architecture:
         Conv(3→12) + MaxPool + LIF →
         Conv(12→64) + MaxPool + LIF →
