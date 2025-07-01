@@ -178,7 +178,7 @@ print(f"Initial test accuracy:      {test_acc * 100:.2f}%")
 # ------------------------
 # TRAINING LOOP
 # ------------------------
-# - Trains using BPTT from snntorch.backprop
+# - Trains using BPTT (backpropagation through time) from snntorch.backprop
 # - Optimizer: Adam
 # - Logs training loss and test accuracy per epoch
 
