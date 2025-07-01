@@ -1,4 +1,4 @@
-## Spiking Neural Networks for Image Classification (CIFAR-10, FMNIST)
+## Spiking Neural Networks for Image Classification
 This repository contains comprehensive training scripts for Spiking Neural Networks (SNNs) using the [snnTorch](https://github.com/jessemelpolio/snntorch) library. The models utilize Leaky Integrate-and-Fire (LIF) neurons and are trained on classic computer vision datasets including CIFAR-10 and Fashion-MNIST (FMNIST).
 
 ### INITIAL SETUP
