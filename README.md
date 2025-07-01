@@ -1,44 +1,33 @@
-## Step-by-step Instructions
+## Spiking Neural Networks for Computer Vision (CIFAR-10, FMNIST, MNIST)
+This is a comprehensive training script for a Spiking Neural Network (SNN) using the snntorch library on the CIFAR-10 dataset, specifically employing a Leaky Integrate-and-Fire (LIF) neuron model.
 
 ### INITIAL SETUP
-
-Do this only once. When you login again, go to home directory and run the command `source sosenv/bin/activate`.
-
+Do this only once. When you log in again, go to your home directory and run the command `source sosenv/bin/activate`.
 ```
-#SETUP ENVIRONMENT
-#home directory
-mkdir /home/snn/
+# SETUP ENVIRONMENT
+mkdir /home/snn/ 
 cd /home/snn/
-#Create virtual environment and connect
+
+# Create virtual environment and connect
 python3 -m venv --copies snnenv
 source sosenv/bin/activate
 #after previous step, you should see (snnenv), prefixed to terminal
 pip install --upgrade pip
 
-#install PyTorch
+# install PyTorch and snnTorch 
 pip install torch >= 1.1.0
 pip install numpy >= 1.17
 pip install pandas
 pip install matplotlib
 pip install 
 pip install snntorch
-
-#you are all set
 ```
-
 ### TRAINING
-
-## train mnist
 ```
+# train MNIST
 python mnist.py
-```
-
-## train fmnist
-```
+# train FMNIST
 python fmnist.py
-```
-
-## train fmnist
-```
+# train CIFAR-10
 python cifar10.py
 ```
