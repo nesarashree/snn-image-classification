@@ -28,11 +28,8 @@ pip install snntorch
 ### TRAINING
 Use the following commands to run training scripts for each dataset:
 ```
-# train FMNIST
-python fmnist.py
-
-# train CIFAR-10
-python cifar10.py
+python fmnist.py      # Train on Fashion-MNIST
+python cifar10.py     # Train on CIFAR-10
 ```
 
 ### NOTES
