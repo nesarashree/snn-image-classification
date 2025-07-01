@@ -1,8 +1,8 @@
 # ============================================================
 # MNIST Classification with Spiking CNN (snnTorch)
 # Author: Nesara Shree
-# Trains a Leaky Integrate-and-Fire spiking CNN on MNIST
-# using surrogate gradient learning and BPTT.
+# Trains a Leaky Integrate-and-Fire spiking CNN (hybrid) on 
+# FMNIST using surrogate gradient learning and BPTT.
 # ============================================================
 
 # ------------------------
