@@ -1,5 +1,5 @@
 ## Spiking Neural Networks for Image Classification
-This repository contains comprehensive training scripts for Spiking Neural Networks (SNNs) using the [snnTorch](https://github.com/jessemelpolio/snntorch) library. The models utilize Leaky Integrate-and-Fire (LIF) neurons and are trained on classic computer vision datasets including CIFAR-10 and Fashion-MNIST (FMNIST).
+This repository contains comprehensive training scripts for Spiking Neural Networks (SNNs) using the [snnTorch](https://github.com/jessemelpolio/snntorch) library. The models utilize Leaky Integrate-and-Fire (LIF) neurons and are trained on classic computer vision datasets, including the publicly available [CIFAR-10](https://www.kaggle.com/c/cifar-10) and Fashion-MNIST ([FMNIST](https://www.kaggle.com/datasets/zalando-research/fashionmnist)).
 
 ### INITIAL SETUP
 Run this setup **once** to create and activate a virtual environment with all dependencies.  
