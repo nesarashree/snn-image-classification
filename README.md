@@ -1,7 +1,7 @@
 ## Spiking Neural Networks for Image Classification
 This repository contains comprehensive training scripts for Spiking Neural Networks (SNNs) using the [snnTorch](https://github.com/jessemelpolio/snntorch) library. The models utilize Leaky Integrate-and-Fire (LIF) neurons and are trained on classic computer vision datasets, including the publicly available [CIFAR-10](https://www.kaggle.com/c/cifar-10) and Fashion-MNIST ([FMNIST](https://www.kaggle.com/datasets/zalando-research/fashionmnist)).
 
-### INITIAL SETUP
+### Initial Setup
 Run this setup **once** to create and activate a virtual environment with all dependencies.  
 When you return to your system later, just run `source snnenv/bin/activate` from your home directory to activate the environment.
 ```
@@ -25,14 +25,14 @@ pip install pandas
 pip install matplotlib
 pip install snntorch
 ```
-### TRAINING
+### Training
 Use the following commands to run training scripts for each dataset:
 ```
 python fmnist.py      # Train on Fashion-MNIST
 python cifar10.py     # Train on CIFAR-10
 ```
 
-### NOTES
+### Notes
 * Make sure your working directory contains the respective .py scripts for training.
 * Adjust batch sizes, epochs, and other hyperparameters in each script as needed.
 * GPU support requires CUDA-enabled PyTorch installed.
